@@ -1,6 +1,6 @@
 import React from 'react';
 import { Subject } from '../../types';
-import { Zap, Flask, Calculator, Book, Globe, Palette, Music, Heart, Dumbbell, Code } from 'lucide-react';
+import { Zap, FlaskRound as Flask, Calculator, Book, Globe, Palette, Music, Heart, Dumbbell, Code } from 'lucide-react';
 import { useApp } from '../../contexts/AppContext';
 
 interface SubjectCardProps {
