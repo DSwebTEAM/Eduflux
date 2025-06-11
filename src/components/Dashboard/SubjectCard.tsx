@@ -1,6 +1,6 @@
 import React from 'react';
 import { Subject } from '../../types';
-import * as Icons from 'lucide-react';
+import { Zap, Flask, Calculator, Book, Globe, Palette, Music, Heart, Dumbbell, Code } from 'lucide-react';
 import { useApp } from '../../contexts/AppContext';
 
 interface SubjectCardProps {
@@ -8,9 +8,23 @@ interface SubjectCardProps {
   onSelect: (subject: Subject) => void;
 }
 
+// Create a map of icon names to components
+const iconMap = {
+  Zap,
+  Flask,
+  Calculator,
+  Book,
+  Globe,
+  Palette,
+  Music,
+  Heart,
+  Dumbbell,
+  Code
+};
+
 export default function SubjectCard({ subject, onSelect }: SubjectCardProps) {
   const { state } = useApp();
-  const IconComponent = Icons[subject.icon as keyof typeof Icons] as React.ComponentType<any>;
+  const IconComponent = iconMap[subject.icon as keyof typeof iconMap] || Book; // Fallback to Book icon
   
   const completedTopics = subject.chapters.reduce((total, chapter) => {
     return total + chapter.topics.filter(topic => 
